@@ -35,7 +35,7 @@ static void render_callback(Canvas* const canvas, void* ctx) {
 
     if(!plugin_state->is_on) {
         elements_multiline_text_aligned(
-            canvas, 64, 28, AlignCenter, AlignTop, "Press OK button to turn ultraflashlight on");
+            canvas, 64, 28, AlignCenter, AlignTop, "Press OK button to turn\nultraflashlight on");
     } else {
         elements_multiline_text_aligned(canvas, 64, 28, AlignCenter, AlignTop, "Ultraflashlight is on :) !");
         elements_multiline_text_aligned(
