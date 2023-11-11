@@ -53,42 +53,42 @@ static void input_callback(InputEvent* input_event, FuriMessageQueue* event_queu
 }
 
 static void flash_toggle(PluginState* const plugin_state) {
-    furi_hal_gpio_write_a7(&gpio_ext_pa7, false);
-    furi_hal_gpio_write_a6(&gpio_ext_pa6, false);
-    furi_hal_gpio_write_a4(&gpio_ext_pa4, false);
-    furi_hal_gpio_write_b3(&gpio_ext_pb3, false);
-    furi_hal_gpio_write_b2(&gpio_ext_pb2, false);
-    furi_hal_gpio_write_c3(&gpio_ext_pc3, false);
-    furi_hal_gpio_write_c1(&gpio_ext_pc1, false);
-    furi_hal_gpio_write_c0(&gpio_ext_pc0, false);
-    furi_hal_gpio_init_a7(&gpio_ext_pa7, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_a6(&gpio_ext_pa6, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_a4(&gpio_ext_pa4, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_b3(&gpio_ext_pb3, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_b2(&gpio_ext_pb2, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_c3(&gpio_ext_pc3, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_c1(&gpio_ext_pc1, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
-    furi_hal_gpio_init_c0(&gpio_ext_pc0, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_write(&gpio_ext_pa7, false);
+    furi_hal_gpio_write(&gpio_ext_pa6, false);
+    furi_hal_gpio_write(&gpio_ext_pa4, false);
+    furi_hal_gpio_write(&gpio_ext_pb3, false);
+    furi_hal_gpio_write(&gpio_ext_pb2, false);
+    furi_hal_gpio_write(&gpio_ext_pc3, false);
+    furi_hal_gpio_write(&gpio_ext_pc1, false);
+    furi_hal_gpio_write(&gpio_ext_pc0, false);
+    furi_hal_gpio_init(&gpio_ext_pa7, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pa6, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pa4, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pb3, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pb2, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pc3, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pc1, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+    furi_hal_gpio_init(&gpio_ext_pc0, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
 
     if(plugin_state->is_on) {
-        furi_hal_gpio_write_a7(&gpio_ext_pa7, false);
-        furi_hal_gpio_write_a6(&gpio_ext_pa6, false);
-        furi_hal_gpio_write_a4(&gpio_ext_pa4, false);
-        furi_hal_gpio_write_b3(&gpio_ext_pb3, false);
-        furi_hal_gpio_write_b2(&gpio_ext_pb2, false);
-        furi_hal_gpio_write_c3(&gpio_ext_pc3, false);
-        furi_hal_gpio_write_c1(&gpio_ext_pc1, false);
-        furi_hal_gpio_write_c0(&gpio_ext_pc0, false);
+        furi_hal_gpio_write(&gpio_ext_pa7, false);
+        furi_hal_gpio_write(&gpio_ext_pa6, false);
+        furi_hal_gpio_write(&gpio_ext_pa4, false);
+        furi_hal_gpio_write(&gpio_ext_pb3, false);
+        furi_hal_gpio_write(&gpio_ext_pb2, false);
+        furi_hal_gpio_write(&gpio_ext_pc3, false);
+        furi_hal_gpio_write(&gpio_ext_pc1, false);
+        furi_hal_gpio_write(&gpio_ext_pc0, false);
         plugin_state->is_on = false;
     } else {
-        furi_hal_gpio_write_a7(&gpio_ext_pa7, true);
-        furi_hal_gpio_write_a6(&gpio_ext_pa6, true);
-        furi_hal_gpio_write_a4(&gpio_ext_pa4, true);
-        furi_hal_gpio_write_b3(&gpio_ext_pb3, true);
-        furi_hal_gpio_write_b2(&gpio_ext_pb2, true);
-        furi_hal_gpio_write_c3(&gpio_ext_pc3, true);
-        furi_hal_gpio_write_c1(&gpio_ext_pc1, true);
-        furi_hal_gpio_write_c0(&gpio_ext_pc0, true);
+        furi_hal_gpio_write(&gpio_ext_pa7, true);
+        furi_hal_gpio_write(&gpio_ext_pa6, true);
+        furi_hal_gpio_write(&gpio_ext_pa4, true);
+        furi_hal_gpio_write(&gpio_ext_pb3, true);
+        furi_hal_gpio_write(&gpio_ext_pb2, true);
+        furi_hal_gpio_write(&gpio_ext_pc3, true);
+        furi_hal_gpio_write(&gpio_ext_pc1, true);
+        furi_hal_gpio_write(&gpio_ext_pc0, true);
         plugin_state->is_on = true;
     }
 }
