@@ -52,7 +52,7 @@ static void input_callback(InputEvent* input_event, FuriMessageQueue* event_queu
     furi_message_queue_put(event_queue, &event, FuriWaitForever);
 }
 
-static void flash_toggle(PluginState* const plugin_state) {
+/*static void flash_toggle(PluginState* const plugin_state) {
     furi_hal_gpio_write(&gpio_ext_pb2, false);
     furi_hal_gpio_init(&gpio_ext_pb2, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
 
@@ -63,7 +63,35 @@ static void flash_toggle(PluginState* const plugin_state) {
         furi_hal_gpio_write(&gpio_ext_pb2, true);
         plugin_state->is_on = true;
     }
+}*/
+static void flash_toggle(PluginState* const plugin_state, GpioPin gpio_pin) {
+    // Configura el pin
+    furi_hal_gpio_init(gpio_pin, GpioModeOutputPushPull, GpioPullNo, GpioSpeedVeryHigh);
+
+    // Realiza el toggle
+    if (plugin_state->is_on) {
+        furi_hal_gpio_write(gpio_pin, false);
+        plugin_state->is_on = false;
+    } else {
+        furi_hal_gpio_write(gpio_pin, true);
+        plugin_state->is_on = true;
+    }
 }
+
+int main() {
+    // Usa la función flash_toggle con diferentes pines
+    flash_toggle(&plugin_state, GpioPinA7);
+    flash_toggle(&plugin_state, GpioPinA6);
+    flash_toggle(&plugin_state, GpioPinA4);
+    flash_toggle(&plugin_state, GpioPinB3);
+    flash_toggle(&plugin_state, GpioPinB2); // Este ya está en tu código original
+    flash_toggle(&plugin_state, GpioPinC3);
+    flash_toggle(&plugin_state, GpioPinC1);
+    flash_toggle(&plugin_state, GpioPinC0);
+
+    return 0;
+}
+
 
 int32_t ultraflashlight_app() {
     FuriMessageQueue* event_queue = furi_message_queue_alloc(8, sizeof(PluginEvent));
